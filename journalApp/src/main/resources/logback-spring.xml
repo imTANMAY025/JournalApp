@@ -37,13 +37,14 @@
     </appender>
 
     <!-- Splunk Appender -->
+
     <appender name="SPLUNK" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
-        <url>http://localhost:8088</url>
-        <token>dc081135-f542-4adf-9092-a89e6a74d8d6</token>
-        <source>http-journal-logs</source>
-        <sourcetype>log4j</sourcetype>
-        <host>localhost</host>
-        <index>journal_service</index>
+        <url>${splunk.url}</url>
+        <token>${splunk.token}</token>
+        <source>${splunk.source}</source>
+        <sourcetype>${splunk.sourcetype}</sourcetype>
+        <host>${splunk.host}</host>
+        <index>${splunk.index}</index>
         <batch_size_count>1</batch_size_count>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
